@@ -15,7 +15,7 @@ public class Principal extends JFrame
         criacaoDoMenu();
         this.setContentPane(panel1);
         this.setSize(640,480);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
 
     }
@@ -23,19 +23,48 @@ public class Principal extends JFrame
     public void criacaoDoMenu()
     {
         this.setJMenuBar(JmenuBarPrincipal);
-        JMenu arquivo = new JMenu("Arquivo");
         JMenu menu = new JMenu("Cadastrar:");
         JMenuItem cadastroLivro = new JMenuItem("Livro");
         JMenuItem cadastroUsuario = new JMenuItem("Usuario");
+        /*/
+
+         */
+        JMenu menuBusca = new JMenu("Buscar: ");
+        JMenuItem buscaLivro = new JMenuItem("Livro");
+        JMenuItem buscaUsuario = new JMenuItem("Usuario");
+        /*/
+
+         */
+
+        JMenu menuApagar = new JMenu("Apagar: ");
+        JMenuItem apagarLivro = new JMenuItem("Livro");
+        JMenuItem apagarUsuario = new JMenuItem("Usuario");
+
         menu.add(cadastroLivro);
         menu.add(cadastroUsuario);
+        menuBusca.add(buscaLivro);
+        menuBusca.add(buscaUsuario);
+        menuApagar.add(apagarLivro);
+        menuApagar.add(apagarUsuario);
         JmenuBarPrincipal.add(menu);
+        JmenuBarPrincipal.add(menuBusca);
+        JmenuBarPrincipal.add(menuApagar);
+
         cadastroLivro.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 LivroView livroView = new LivroView();
+            }
+        });
+
+        buscaLivro.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                BuscarLivroView buscar= new BuscarLivroView();
             }
         });
     }
