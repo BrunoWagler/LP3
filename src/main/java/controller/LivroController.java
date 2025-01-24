@@ -1,10 +1,10 @@
 package controller;
 
 import model.LivroModel;
-import view.LivroView;
 import repository.LivroRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class LivroController
@@ -15,5 +15,11 @@ public class LivroController
     {
         return livroRepository.salvar(livro);
     }
+
+    public List<LivroModel> buscarLivros() throws SQLException
+    {
+        return livroRepository.buscarLivros();
+    }
+
 
 }
