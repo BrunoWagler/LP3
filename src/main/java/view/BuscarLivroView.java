@@ -75,7 +75,6 @@ public class BuscarLivroView extends JFrame {
                     JOptionPane.showMessageDialog(null, "Erro ao remover livro: " + ex.getMessage());
                 }
             } else {
-                // Exibe uma mensagem se o usuário não selecionou um livro
                 JOptionPane.showMessageDialog(null, "Selecione o livro que deseja remover");
             }
         });
@@ -108,7 +107,12 @@ public class BuscarLivroView extends JFrame {
             }
         });
 
-        voltarButton.addActionListener(e -> dispose());
+        voltarButton.addActionListener(e ->
+        {
+            BuscaTabelaLivro buscarLivro = new BuscaTabelaLivro();
+            tableBuscaLivro.setModel(buscaTabelaLivro);
+            tableBuscaLivro.setAutoCreateRowSorter(true);
+        });
     }
 
     private static class BuscaTabelaLivro extends AbstractTableModel {
