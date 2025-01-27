@@ -13,7 +13,7 @@ public class Principal extends JFrame
     public Principal()
     {
         criacaoDoMenu();
-        this.setContentPane(panel1);
+        this.setContentPane(JpanelPrincipal);
         this.setSize(640,480);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
@@ -36,7 +36,7 @@ public class Principal extends JFrame
 
          */
 
-        JMenu menuApagar = new JMenu("Apagar: ");
+        JMenu menuApagar = new JMenu("Emprestimo: ");
         JMenuItem apagarLivro = new JMenuItem("Livro");
         JMenuItem apagarUsuario = new JMenuItem("Usuario");
 
@@ -49,6 +49,23 @@ public class Principal extends JFrame
         JmenuBarPrincipal.add(menu);
         JmenuBarPrincipal.add(menuBusca);
         JmenuBarPrincipal.add(menuApagar);
+
+
+        cadastroUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                UsuarioView usuarioView = new UsuarioView();
+            }
+        });
+
+        buscaUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
 
         cadastroLivro.addActionListener(new ActionListener()
         {
@@ -68,6 +85,7 @@ public class Principal extends JFrame
             }
         });
     }
+
 }
 
 
