@@ -20,6 +20,15 @@ public class LivroController
     {
         return livroRepository.buscarLivros();
     }
+    public String remover(Long idLivroSelecionado) throws SQLException {
+        return livroRepository.Remover(idLivroSelecionado);
+    }
 
+
+   public String Editar(Long idLivro) throws  SQLException
+   {
+       LivroModel livro = livroRepository.buscarPorId(idLivro);
+       return livroRepository.EditarLivro(livro);
+   }
 
 }
