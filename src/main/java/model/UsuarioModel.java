@@ -12,6 +12,7 @@ public class UsuarioModel
     private Long idUsuario;
     private String nome;
     private String telefone;
+    private String sexo;
     private String email;
 
     public Long getIdUsuario() {
@@ -36,6 +37,14 @@ public class UsuarioModel
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getEmail() {
