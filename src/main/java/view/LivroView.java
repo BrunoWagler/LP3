@@ -21,6 +21,7 @@ public class LivroView extends JFrame
     private JSpinner spinnerQuantidade;
     private JButton button1;
     private JFormattedTextField formattedTextFieldData;
+    private JPanel Jpanel1;
     private LivroController livroController = new LivroController();
 
 
@@ -28,7 +29,7 @@ public class LivroView extends JFrame
     {
         MaskFormatter mascaratelefone = null;
 
-        this.setContentPane(JpanelLivro);
+        this.setContentPane(Jpanel1);
         this.setSize(640,480);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
@@ -42,6 +43,8 @@ public class LivroView extends JFrame
         } catch (ParseException ex) {
             System.out.println("Deu ruim");
         }
+
+
 
 
         button1.addActionListener(new ActionListener()
