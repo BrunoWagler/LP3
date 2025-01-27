@@ -73,19 +73,61 @@ public class LivroRepository
         }
     }
 
-    public String Remover(LivroModel livro)
+    public String Remover(Long idLivro)
+    {
+        try
+        {
+
+            LivroModel livro = entityManager.find(LivroModel.class, idLivro);
+
+            if (livro != null) {
+
+                entityManager.getTransaction().begin();
+                entityManager.remove(livro); // Remove o objeto encontrado
+                entityManager.getTransaction().commit();
+                return "Livro removido com sucesso!";
+            } else {
+
+                return "Livro não encontrado!";
+            }
+        }
+        catch (Exception e)
+        {
+
+            e.printStackTrace();
+            return "Erro ao remover o livro: " + e.getMessage();
+        }
+    }
+
+
+    public LivroModel buscarPorId(Long id)
+    {
+        LivroModel livro = new LivroModel();
+        try
+        {
+           livro = entityManager.find(LivroModel.class, id);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return livro;
+    }
+
+    public String EditarLivro(LivroModel livro)
     {
         try
         {
             entityManager.getTransaction().begin();
-            entityManager.remove(livro);
+            entityManager.merge(livro);
             entityManager.getTransaction().commit();
-            return "Removido";
-        }catch(Exception e)
+        }
+        catch (Exception e)
         {
-            return e.getMessage();
+            e.printStackTrace();
         }
 
+
+        return "Editado!";
     }
 
 }
