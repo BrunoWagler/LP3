@@ -1,5 +1,6 @@
 package repository;
 
+import model.LivroModel;
 import model.UsuarioModel;
 
 import javax.persistence.EntityManager;
@@ -63,12 +64,26 @@ public class UsuarioRepository
         }
     }
 
-    public String Remover(UsuarioModel livro)
+
+    public List<UsuarioModel> buscarUsuarioNome(String nome)
+    {
+        try
+        {
+            List<UsuarioModel> usuarios = entityManager.createQuery("From UsuarioModel where nome like '%"+nome+"%'").getResultList();
+            return usuarios;
+        }
+        catch (Exception e)
+        {
+            return new ArrayList<>();
+        }
+    }
+
+    public String Remover(UsuarioModel usuario)
     {
         try
         {
             entityManager.getTransaction().begin();
-            entityManager.remove(livro);
+            entityManager.remove(usuario);
             entityManager.getTransaction().commit();
             return "Removido";
         }catch(Exception e)
