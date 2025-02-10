@@ -83,7 +83,7 @@ public class LivroRepository
             if (livro != null) {
 
                 entityManager.getTransaction().begin();
-                entityManager.remove(livro); // Remove o objeto encontrado
+                entityManager.remove(livro);
                 entityManager.getTransaction().commit();
                 return "Livro removido com sucesso!";
             } else {
@@ -129,5 +129,10 @@ public class LivroRepository
 
         return "Editado!";
     }
+
+    public List<LivroModel> buscarLivrosDisponiveis() {
+        return entityManager.createQuery("FROM LivroModel l WHERE l.quantidade > 0", LivroModel.class).getResultList();
+    }
+
 
 }

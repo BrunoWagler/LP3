@@ -29,7 +29,7 @@ public class UsuarioController
 
     public String Editar(Long idUsu) throws  SQLException
     {
-       UsuarioModel usuarioModel = usuarioRepository.buscarPorId(idUsu);
+        UsuarioModel usuarioModel = usuarioRepository.buscarPorId(idUsu);
         return usuarioRepository.EditarUsuario(usuarioModel);
     }
 

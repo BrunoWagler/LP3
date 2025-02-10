@@ -1,23 +1,11 @@
-/*/
-
-ítulo
- - Tema
- - Autor
- - ISBN
- - Data de publicação
- - Quantidade disponível (exemplares)
- - Número de identificação (id)
- Obs. Utilizar máscaras para o ca
- */
-
-
 package model;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="livro")
-public class LivroModel
-{
+public class LivroModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
@@ -83,5 +71,10 @@ public class LivroModel
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s | Autor: %s | ISBN: %d | Tema: %s", titulo, data, autor, isbn, tema);
     }
 }

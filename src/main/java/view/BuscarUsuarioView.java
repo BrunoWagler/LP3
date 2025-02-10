@@ -70,6 +70,7 @@ public class BuscarUsuarioView extends JFrame {
 
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao remover usuário: " + ex.getMessage());
+                    throw new RuntimeException(ex);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Selecione o usuário que deseja remover");
@@ -89,11 +90,14 @@ public class BuscarUsuarioView extends JFrame {
                             String resultado = UsuarioRepository.getInstance().EditarUsuario(usuario);
                             JOptionPane.showMessageDialog(null, resultado);
 
-                            // Atualiza a tabela após a edição
+
                             BuscaTabelaUsuario buscaTabelaUsuario1 = new BuscaTabelaUsuario();
                             tableBuscaUsuario.setModel(buscaTabelaUsuario1);
-                        } catch (Exception ex) {
+                        }
+                        catch (Exception ex)
+                        {
                             JOptionPane.showMessageDialog(null, "Erro ao editar usuário: " + ex.getMessage());
+                            throw new RuntimeException(ex);
                         }
                     }
                 }

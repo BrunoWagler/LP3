@@ -73,6 +73,7 @@ public class BuscarLivroView extends JFrame {
 
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao remover livro: " + ex.getMessage());
+                    throw new RuntimeException(ex);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Selecione o livro que deseja remover");
@@ -96,6 +97,7 @@ public class BuscarLivroView extends JFrame {
                                 tableBuscaLivro.setModel(buscaTabelaLivro1);
                             } catch (Exception ex) {
                                 JOptionPane.showMessageDialog(null, "Erro ao editar livro: " + ex.getMessage());
+                                throw new RuntimeException(ex);
                             }
                         }
                     }
